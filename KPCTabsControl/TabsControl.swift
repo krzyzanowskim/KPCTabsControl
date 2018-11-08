@@ -81,6 +81,7 @@ open class TabsControl: NSControl, NSTextDelegate {
         self.scrollView.translatesAutoresizingMaskIntoConstraints = true
         
         self.tabsView = NSView(frame: self.scrollView.bounds)
+        self.tabsView.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
         self.scrollView.documentView = self.tabsView
         
         self.addSubview(self.scrollView)
