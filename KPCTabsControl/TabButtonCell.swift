@@ -25,7 +25,7 @@ class TabButtonCell: NSButtonCell {
     }
 
     var showsIcon: Bool {
-        get { return (self.controlView as! TabButton).icon != nil }
+        get { return (self.controlView as! TabButton).iconView != nil }
     }
 
     var showsMenu: Bool {

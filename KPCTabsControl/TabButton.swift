@@ -10,7 +10,6 @@ import AppKit
 
 open class TabButton: NSButton {
 
-    fileprivate var iconView: NSImageView?
     fileprivate var alternativeTitleIconView: NSImageView?
     fileprivate var trackingArea: NSTrackingArea?
     
@@ -45,18 +44,15 @@ open class TabButton: NSButton {
         set { self.tabButtonCell?.isEditable = newValue }
     }
 
-    open var icon: NSImage? = nil {
+    open var iconView: NSButton? = nil {
         didSet {
-            if self.icon != nil && self.iconView == nil {
-                self.iconView = NSImageView(frame: NSZeroRect)
-                self.iconView?.imageFrameStyle = .none
+            if self.iconView != nil {
                 self.addSubview(self.iconView!)
             }
-            else if (self.icon == nil && self.iconView != nil) {
+            else if (self.iconView == nil) {
                 self.iconView?.removeFromSuperview()
                 self.iconView = nil
             }
-            self.iconView?.image = self.icon
             self.needsDisplay = true
         }
     }
@@ -112,7 +108,7 @@ open class TabButton: NSButton {
     override open func copy() -> Any {
         let copy = TabButton(frame: self.frame)
         copy.cell = self.cell?.copy() as? NSCell
-        copy.icon = self.icon
+        copy.iconView = self.iconView
         copy.style = self.style
         copy.alternativeTitleIcon = self.alternativeTitleIcon
         copy.state = self.state
@@ -191,9 +187,9 @@ open class TabButton: NSButton {
 
         let scale: CGFloat = (self.layer != nil) ? self.layer!.contentsScale : 1.0
 
-        if self.icon?.size.width > (iconFrames.iconFrame).height*scale {
+        if self.iconView?.image?.size.width > (iconFrames.iconFrame).height*scale {
             let smallIcon = NSImage(size: iconFrames.iconFrame.size)
-            smallIcon.addRepresentation(NSBitmapImageRep(data: self.icon!.tiffRepresentation!)!)
+            smallIcon.addRepresentation(NSBitmapImageRep(data: self.iconView!.image!.tiffRepresentation!)!)
             self.iconView?.image = smallIcon
         }
 

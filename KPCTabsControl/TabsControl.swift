@@ -172,7 +172,7 @@ open class TabsControl: NSControl, NSTextDelegate {
             button.style = self.style
 
             button.title = dataSource.tabsControl(self, titleForItem: item)
-            button.icon = dataSource.tabsControl?(self, iconForItem: item)
+            button.iconView = dataSource.tabsControl?(self, iconForItem: item)
             button.menu = dataSource.tabsControl?(self, menuForItem: item)
             button.alternativeTitleIcon = dataSource.tabsControl?(self, titleAlternativeIconForItem: item) 
         }

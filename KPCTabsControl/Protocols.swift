@@ -57,7 +57,7 @@ import AppKit
      
      - returns: An image instance for the icon.
      */
-    @objc optional func tabsControl(_ control: TabsControl, iconForItem item:AnyObject) -> NSImage?
+    @objc optional func tabsControl(_ control: TabsControl, iconForItem item:AnyObject) -> NSButton?
 
     /**
      If the width of the tab is not large enough to draw the title, it is possible to provide here an alternate
