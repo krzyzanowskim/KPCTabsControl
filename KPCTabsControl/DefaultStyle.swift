@@ -19,17 +19,17 @@ public extension ThemedStyle {
     
     // MARK: - Tab Buttons
     
-    public func tabButtonOffset(position: TabPosition) -> Offset {
+    func tabButtonOffset(position: TabPosition) -> Offset {
         return NSPoint()
     }
 
-    public func tabButtonBorderMask(_ position: TabPosition) -> BorderMask? {
+    func tabButtonBorderMask(_ position: TabPosition) -> BorderMask? {
         return BorderMask.all()
     }
     
     // MARK: - Tab Button Titles
 
-    public func iconFrames(tabRect rect: NSRect) -> IconFrames {
+    func iconFrames(tabRect rect: NSRect) -> IconFrames {
         
         let verticalPadding: CGFloat = 4.0
         let paddedHeight = rect.height - 2*verticalPadding
@@ -39,7 +39,7 @@ public extension ThemedStyle {
                 NSMakeRect(x, verticalPadding, paddedHeight, paddedHeight))
     }
         
-    public func titleRect(title: NSAttributedString, inBounds rect: NSRect, showingIcon: Bool) -> NSRect {
+    func titleRect(title: NSAttributedString, inBounds rect: NSRect, showingIcon: Bool) -> NSRect {
         
         let titleSize = title.size()
         let fullWidthRect = NSRect(x: NSMinX(rect),
@@ -61,13 +61,13 @@ public extension ThemedStyle {
         return rect.offsetBy(dx: pad, dy: 0.0).shrinkBy(dx: pad, dy: 0.0)
     }
     
-    public func titleEditorSettings() -> TitleEditorSettings {
+    func titleEditorSettings() -> TitleEditorSettings {
         return (textColor: NSColor(calibratedWhite: 1.0/6, alpha: 1.0),
                 font: self.theme.tabButtonTheme.titleFont,
                 alignment: TitleDefaults.alignment)
     }
     
-    public func attributedTitle(content: String, selectionState: TabSelectionState) -> NSAttributedString {
+    func attributedTitle(content: String, selectionState: TabSelectionState) -> NSAttributedString {
         
         let activeTheme = self.theme.tabButtonTheme(fromSelectionState: selectionState)
         
@@ -84,13 +84,13 @@ public extension ThemedStyle {
 
     // MARK: - Tabs Control
     
-    public func tabsControlBorderMask() -> BorderMask? {
+    func tabsControlBorderMask() -> BorderMask? {
         return BorderMask.top.union(BorderMask.bottom)
     }
 
     // MARK: - Drawing
 
-    public func drawTabsControlBezel(frame: NSRect) {
+    func drawTabsControlBezel(frame: NSRect) {
         self.theme.tabsControlTheme.backgroundColor.setFill()
         frame.fill()
         
@@ -98,7 +98,7 @@ public extension ThemedStyle {
         self.drawBorder(borderDrawing, color: self.theme.tabsControlTheme.borderColor)
     }
     
-    public func drawTabButtonBezel(frame: NSRect, position: TabPosition, isSelected: Bool) {
+    func drawTabButtonBezel(frame: NSRect, position: TabPosition, isSelected: Bool) {
         
         let activeTheme = isSelected ? self.theme.selectedTabButtonTheme : self.theme.tabButtonTheme
         activeTheme.backgroundColor.setFill()
