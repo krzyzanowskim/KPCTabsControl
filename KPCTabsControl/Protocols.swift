@@ -76,7 +76,7 @@ import AppKit
     /**
      *  Determine if the tab can be selected.
      *
-     *  - parameter tabControl: The instance of the tabs control.
+     *  - parameter control: The instance of the tabs control.
      *  - parameter item:       The item representing the given tab.
      *
      *  - returns: A boolean value indicating whether the tab can be selected or not.
@@ -87,7 +87,7 @@ import AppKit
      *  If implemented, the delegate is informed that the selected tab did change.
      *  See also TabsControlSelectionDidChangeNotification
      *
-     *  - parameter tabControl: The instance of the tabs control.
+     *  - parameter control: The instance of the tabs control.
      *  - parameter item:       The item representing the selected tab.
      */
     @objc optional func tabsControlDidChangeSelection(_ control: TabsControl, item: AnyObject)
@@ -96,7 +96,7 @@ import AppKit
      *  Return `true` if the tab is allowed to be reordered (by being dragged with the mouse).
      *  This method has no effect if the one below is not implemented.
      *
-     *  - parameter tabControl: The instance of the tabs control.
+     *  - parameter control: The instance of the tabs control.
      *  - parameter item:       The item representing the given tab.
      *
      *  - returns: A boolean value indicating whether the tab can be reordered or not.
@@ -107,7 +107,7 @@ import AppKit
      *  If implemented, the delegate is informed that the tabs have been reordered. It is the delegate responsability
      *  to store the new order of items. If not stored, the tabs will recover their original order.
      *
-     *  - parameter tabControl: The instance of the tabs control.
+     *  - parameter control: The instance of the tabs control.
      *  - parameter items:      The array the items following the new orders.
      */
     @objc optional func tabsControl(_ control: TabsControl, didReorderItems items: [AnyObject])
@@ -116,7 +116,7 @@ import AppKit
      *  Return `true` if you allow the editing of the title of the tab. By default, titles are not editable.
      *  This method has no effect if the one below is not implemented.
      *
-     *  - parameter tabControl: The instance of the tabs control.
+     *  - parameter control: The instance of the tabs control.
      *  - parameter item:       The item representing the given tab.
      *
      *  - returns: A boolean value indicating whether the tab title can be edited or not.
@@ -127,7 +127,7 @@ import AppKit
      *  If implemented, the delegate is informed that the tab has been renamed to the given title. Again, it is the
      *  delegate responsability to store the new title.
      *
-     *  - parameter tabControl: The instance of the tabs control.
+     *  - parameter control: The instance of the tabs control.
      *  - parameter newTitle:   The new title value.
      *  - parameter item:       The item representing the given tab.
      */
