@@ -9,7 +9,7 @@
 import AppKit
 
 internal extension NSImage {
-    internal func imageWithTint(_ tint: NSColor) -> NSImage {
+    func imageWithTint(_ tint: NSColor) -> NSImage {
         var imageRect = NSZeroRect;
         imageRect.size = self.size;
         

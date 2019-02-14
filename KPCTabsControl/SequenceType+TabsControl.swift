@@ -10,7 +10,7 @@ import Foundation
 
 internal extension Sequence {
     
-    internal func findFirst(_ predicate: (Self.Iterator.Element) -> Bool) -> Self.Iterator.Element? {
+    func findFirst(_ predicate: (Self.Iterator.Element) -> Bool) -> Self.Iterator.Element? {
 
         for element in self {
             if predicate(element) {

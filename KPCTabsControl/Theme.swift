@@ -44,7 +44,7 @@ public extension Theme {
      
      - returns: The theme crresponding to the selection state.
      */
-    public func tabButtonTheme(fromSelectionState selectionState : TabSelectionState) -> TabButtonTheme {
+    func tabButtonTheme(fromSelectionState selectionState : TabSelectionState) -> TabButtonTheme {
         switch selectionState {
         case .normal: return self.tabButtonTheme
         case .selected: return self.selectedTabButtonTheme
