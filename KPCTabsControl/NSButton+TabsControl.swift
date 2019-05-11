@@ -8,8 +8,8 @@
 
 import AppKit
 
-internal extension NSButton {
-    static func auxiliaryButton(withImageNamed imageName: String, target: AnyObject?, action: Selector?) -> NSButton {
+extension NSButton {
+    static internal func auxiliaryButton(withImageNamed imageName: String, target: AnyObject?, action: Selector?) -> NSButton {
         
         let cell = TabButtonCell(textCell: "")
         let mask = NSEvent.EventTypeMask.leftMouseDown.union(NSEvent.EventTypeMask.periodic)

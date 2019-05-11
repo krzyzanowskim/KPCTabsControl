@@ -8,9 +8,8 @@
 
 import Foundation
 
-internal extension Sequence {
-    
-    func findFirst(_ predicate: (Self.Iterator.Element) -> Bool) -> Self.Iterator.Element? {
+extension Sequence {    
+    internal func findFirst(_ predicate: (Self.Iterator.Element) -> Bool) -> Self.Iterator.Element? {
 
         for element in self {
             if predicate(element) {
