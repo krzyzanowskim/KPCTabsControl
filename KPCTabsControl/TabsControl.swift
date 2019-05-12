@@ -411,7 +411,7 @@ open class TabsControl: NSControl, NSTextDelegate {
         else if let item = button.representedObject
             , self.delegate?.tabsControl?(self, canReorderItem: item) == true {
 
-            let mask: NSEvent.EventTypeMask = NSEvent.EventTypeMask.leftMouseUp.union(NSEvent.EventTypeMask.leftMouseDragged)
+            let mask = NSEvent.EventTypeMask.leftMouseUp.union(.leftMouseDragged)
 
             guard let event = self.window?.nextEvent(matching: NSEvent.EventTypeMask(rawValue: UInt64(Int(mask.rawValue))), until: Date.distantFuture, inMode: RunLoop.Mode.eventTracking, dequeue: false)
                 , event.type == NSEvent.EventType.leftMouseDragged
